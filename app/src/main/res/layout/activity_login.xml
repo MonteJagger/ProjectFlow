@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.example.flow.projectflow.MainActivity">
+    tools:context=".LoginActivity">
 
 
     <ImageView
@@ -61,10 +61,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/signInButton"
             android:text="@string/signIn"
-            android:layout_below="@+id/userPassword"
             android:layout_weight="1"
-            android:onClick="signInClick"
-            />
+            android:background="#3075ff" />
         <!-- create profile button -->
         <Button
             android:layout_width="wrap_content"
@@ -72,7 +70,6 @@
             android:id="@+id/signUpButton"
             android:layout_weight="1"
             android:text="@string/signUp"
-            android:onClick="signUpClick"
             />
 
 

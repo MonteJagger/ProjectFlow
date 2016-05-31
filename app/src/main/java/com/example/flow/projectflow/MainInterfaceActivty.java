@@ -18,12 +18,12 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainScreen extends AppCompatActivity {
+public class MainInterfaceActivty extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_screen_layout);
+        setContentView(R.layout.activity_main_interface);
     }
 
 }
