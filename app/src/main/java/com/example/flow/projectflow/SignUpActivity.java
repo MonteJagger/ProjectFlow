@@ -3,6 +3,7 @@ package com.example.flow.projectflow;
 /**
  * Created by Thomas on 5/25/2016.
  */
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,9 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends Activity {
 
     ImageButton btnBack;
     EditText etEmail,etPass,etVPass;
@@ -46,18 +48,43 @@ public class SignUpActivity extends AppCompatActivity {
                 String password = etPass.getText().toString();
                 String verifyPassword = etPass.getText().toString();
 
-                if (password.equals(verifyPassword))
-                {
+                //Validating username and password
+                if(etEmail.length() == 0) {
+                    etEmail.requestFocus();
+                    etEmail.setError("Email cannot be empty.");
+                }
+//LINH
+                else if(etEmail.length() < 4 || etEmail.length() > 30) {
+                    etEmail.requestFocus();
+                    etEmail.setError("Email must be between 4 and 30 characters");
+                }
+//------------------------------
+                else if (!emailAddress.contains("@") || !emailAddress.contains(".") ) {
+                    etEmail.requestFocus();
+                    etEmail.setError("Email must contain '@' and '.'");
+                }
+                else if(etPass.length() == 0) {
+                    etPass.requestFocus();
+                    etPass.setError("Password cannot be empty.");
+                }
+//LINH
+                else if(etPass.length() < 5 || etPass.length() > 15 ) {
+                    etPass.requestFocus();
+                    etPass.setError("Password can only be between 5 and 15 characters");
+                }
+
+                else if(!etVPass.getText().toString().equals(etPass.getText().toString())) {
+                    etVPass.requestFocus();
+                    etVPass.setError("Passwords do not match.");
+                }
+                else {
                     new Register().execute(emailAddress,password);
                 }
 
-                Intent nextScreen = new Intent(getApplicationContext(),LoginActivity.class);
-                startActivity(nextScreen);
-                finish();
+
 
             }
         });
-
 
 /*===============================================================================
 //   BACK BUTTON

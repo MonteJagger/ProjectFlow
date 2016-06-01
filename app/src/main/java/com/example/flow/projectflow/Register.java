@@ -3,9 +3,11 @@ package com.example.flow.projectflow;
 /**
  * Created by Thomas on 5/29/2016.
  */
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.Toast;
+import android.os.Bundle;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,6 +17,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+
+import android.support.v7.app.AppCompatActivity;
+
 
 public class Register extends AsyncTask<String,Void,String> {
 
@@ -30,9 +35,9 @@ public class Register extends AsyncTask<String,Void,String> {
 
             try {
                 data = "?email=" + URLEncoder.encode(emailAddress, "UTF-8");
-                data += "&pass=" + URLEncoder.encode(password, "UTF-8");
+                data += "&password=" + URLEncoder.encode(password, "UTF-8");
 
-                link = "http://flow.site88.net/php.php" + data;
+                link = "http://flow.site88.net/php.php"+ data;
                 //link = "http://testandroid.netai.net/signup.php" + data;
                 URL url = new URL(link);
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -53,12 +58,14 @@ public class Register extends AsyncTask<String,Void,String> {
                 try {
                     JSONObject jsonObj = new JSONObject(jsonStr);
                     String query_result = jsonObj.getString("query_result");
-                    Toast.makeText(ApplicationContextProvider.getContext(), query_result, Toast.LENGTH_LONG).show();
+                    //Toast.makeText(ApplicationContextProvider.getContext(), query_result, Toast.LENGTH_LONG).show();
                     if (query_result.equals("SUCCESS")) {
-                        Toast.makeText(ApplicationContextProvider.getContext(), "Data inserted successfully. Signup successfull.", Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(ApplicationContextProvider.getContext(), "Signup successful.", Toast.LENGTH_SHORT).show();
+                        Intent nextScreen = new Intent(ApplicationContextProvider.getContext(), LoginActivity.class);
+                        nextScreen.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        ApplicationContextProvider.getContext().startActivity(nextScreen);
                     } else if (query_result.equals("FAILURE")) {
-                        Toast.makeText(ApplicationContextProvider.getContext(), "Data could not be inserted. Signup failed.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ApplicationContextProvider.getContext(), "Email already exists", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(ApplicationContextProvider.getContext(), "Couldn't connect to remote database.", Toast.LENGTH_SHORT).show();
                     }

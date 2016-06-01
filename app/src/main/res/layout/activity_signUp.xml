@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:text="Submit"
                 android:id="@+id/btnSub"
-                android:background="#d70053f9"
+                android:background="#ba0055ff"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:textColor="#ffffff" />
