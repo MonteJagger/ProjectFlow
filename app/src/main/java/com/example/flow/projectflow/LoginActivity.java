@@ -1,5 +1,6 @@
 package com.example.flow.projectflow;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.SharedPreferences;
+import android.support.v7.app.ActionBar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -35,6 +37,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ActionBar supportActionBar = getSupportActionBar();
+        supportActionBar.hide();
 
         View vBtnSignIn = findViewById(R.id.signInButton);
         assert vBtnSignIn != null;
@@ -62,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Toast.makeText(getApplicationContext(), "Signing up", Toast.LENGTH_SHORT).show();
                 Intent nextScreen = new Intent(getApplicationContext(), SignUpActivity.class);
                 startActivity(nextScreen);
                 finish();
@@ -151,29 +154,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed () {
-        // Write your code here
-        //Creating an alert dialog to confirm logout
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setMessage("Exit Application?");
-        alertDialogBuilder.setPositiveButton("Yes",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        finish();
-                    }
-                });
 
-        alertDialogBuilder.setNegativeButton("No",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-
-                    }
-                });
-
-        //Showing the alert dialog
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
     }
 
 }

@@ -20,8 +20,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.util.Log;
 
-public class MainInterfaceActivty extends AppCompatActivity {
+public class MainInterfaceActivty extends AppCompatActivity  {
+
+    private ViewPager tabsviewPager;
+    private Tabsadapter mTabsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,15 @@ public class MainInterfaceActivty extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(Config.SHARED_PREF_NAME, ApplicationContextProvider.getContext().MODE_PRIVATE);
         String email = sharedPreferences.getString(Config.EMAIL_SHARED_PREF,"Not Available");
 
+        tabsviewPager = (ViewPager) findViewById(R.id.tabspager);
+        mTabsAdapter = new Tabsadapter(getSupportFragmentManager());
+        tabsviewPager.setAdapter(mTabsAdapter);
+
+        //Tab createtab = getSupportActionBar().newTab().setText("Courses").setTabListener(this);
+       //Tab usersettingtab = getSupportActionBar().newTab().setText("Browse").setTabListener(this);
+
+        //getSupportActionBar().addTab(createtab);
+        //getSupportActionBar().addTab(usersettingtab);
     }
 
     private void logout(){
@@ -94,7 +107,6 @@ public class MainInterfaceActivty extends AppCompatActivity {
 
     @Override
     public void onBackPressed () {
-        // Write your code here
         logout();
     }
 
