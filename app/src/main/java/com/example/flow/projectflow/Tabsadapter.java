@@ -14,12 +14,12 @@ public class Tabsadapter extends FragmentStatePagerAdapter {
 
     public Tabsadapter(FragmentManager fm) {
         super(fm);
-        // TODO Auto-generated constructor stub
+        //  Auto-generated constructor stub
     }
 
     @Override
     public Fragment getItem(int index) {
-        // TODO Auto-generated method stub
+        //  Auto-generated method stub
         switch (index) {
             case 0:
                 return new ViewCoursesFragment();
@@ -34,7 +34,7 @@ public class Tabsadapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        // TODO Auto-generated method stub
+        // Auto-generated method stub
         return TOTAL_TABS;
     }
 
