@@ -8,7 +8,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="#ff870e">
 
 
     <ImageView
@@ -83,7 +84,7 @@
                     android:layout_height="50dp"
                     android:id="@+id/signInButton"
                     android:text="@string/signIn"
-                    android:background="@drawable/blue_bk_border"
+                    android:background="@drawable/button_back"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:layout_marginRight="15dp"

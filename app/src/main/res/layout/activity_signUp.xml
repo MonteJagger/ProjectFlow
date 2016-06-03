@@ -18,7 +18,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:id="@+id/frameLayout"
-            android:background="@drawable/blue_bk_border"
+            android:background="@drawable/button_back"
             android:layout_margin="10dp">
 
             <ImageButton
@@ -169,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:text="Submit"
                 android:id="@+id/btnSub"
-                android:background="@drawable/blue_bk_border"
+                android:background="@drawable/button_back"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:textColor="#ffffff"

@@ -4,18 +4,15 @@ package com.example.flow.projectflow;
  * Created by Thomas on 5/25/2016.
  */
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 
 public class SignUpActivity extends AppCompatActivity {
@@ -28,12 +25,12 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.abcolor_bk_border));
+            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.actionbar_back));
         }
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>FLOW</font>"));
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
+        //Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        //setSupportActionBar(myToolbar);
 
         View vbtnBack = findViewById(R.id.btnBack);
         assert vbtnBack != null;
