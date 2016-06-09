@@ -6,7 +6,7 @@
     android:weightSum="2"
     android:contextClickable="false"
     android:clickable="false"
-    >
+    android:background="#ffffff">
 
     <TableRow
         android:layout_width="match_parent"
@@ -14,69 +14,13 @@
         android:baselineAligned="false"
         style="@style/Base.TextAppearance.AppCompat">
 
-        <FrameLayout
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:id="@+id/frameLayout"
-            android:background="@drawable/button_back"
-            android:layout_margin="10dp">
-
-            <ImageButton
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/btnBack"
-                android:layout_column="4"
-                android:src="@android:drawable/ic_menu_revert"
-                android:layout_gravity="center"
-                android:background="#00ffffff"
-                android:contentDescription="1" />
-        </FrameLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Sign Up"
-            android:id="@+id/txSignUp"
-            android:textSize="36dp"
-            android:textColor="#51b3fe"
-            android:layout_column="1"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/frameLayout"
-            android:layout_alignBottom="@+id/frameLayout"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="gravity"
-            android:typeface="normal"
-            android:layout_alignParentStart="true"
-            android:gravity="fill_vertical"
-            android:layout_weight="1"
-            android:layout_marginLeft="-5dp"
-            android:paddingStart="56dp"
-            android:layout_marginRight="-5dp" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="wrap_content"
-        android:layout_height="3dp"
-        android:background="@drawable/line_blue"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/empty"
-            android:text=" "
-            android:textSize="3dp" />
     </TableRow>
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="204dp"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp">
 
         <TableLayout
             android:layout_width="match_parent"

@@ -22,7 +22,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.util.Log;
 
-public class MainInterfaceActivty extends AppCompatActivity  {
+public class MainInterfaceActivty extends AppCompatActivity implements android.support.v7.app.ActionBar.TabListener {
 
     private ViewPager tabsviewPager;
     private Tabsadapter mTabsAdapter;
@@ -31,18 +31,42 @@ public class MainInterfaceActivty extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_interface);
+
+        //Get preferences
         SharedPreferences sharedPreferences = getSharedPreferences(Config.SHARED_PREF_NAME, ApplicationContextProvider.getContext().MODE_PRIVATE);
         String email = sharedPreferences.getString(Config.EMAIL_SHARED_PREF,"Not Available");
 
+        Intent intentInfo = getIntent();
+        //Set up view pager
         tabsviewPager = (ViewPager) findViewById(R.id.tabspager);
         mTabsAdapter = new Tabsadapter(getSupportFragmentManager());
         tabsviewPager.setAdapter(mTabsAdapter);
 
-        //Tab createtab = getSupportActionBar().newTab().setText("Courses").setTabListener(this);
-       //Tab usersettingtab = getSupportActionBar().newTab().setText("Browse").setTabListener(this);
+        //Set up action Bar
+        final ActionBar actionBar = getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        Tab courseTab = getSupportActionBar().newTab().setText("Courses").setTabListener(this);
+        Tab browseTab = getSupportActionBar().newTab().setText("Browse").setTabListener(this);
 
-        //getSupportActionBar().addTab(createtab);
-        //getSupportActionBar().addTab(usersettingtab);
+        getSupportActionBar().addTab(courseTab);
+        getSupportActionBar().addTab(browseTab);
+
+
+        //Change views
+        tabsviewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                getSupportActionBar().setSelectedNavigationItem(position);
+            }
+            @Override
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
+                // TODO Auto-generated method stub
+            }
+            @Override
+            public void onPageScrollStateChanged(int arg0) {
+                // TODO Auto-generated method stub
+            }
+        });
     }
 
     private void logout(){
@@ -110,4 +134,19 @@ public class MainInterfaceActivty extends AppCompatActivity  {
         logout();
     }
 
+    //=======================================================================================
+    @Override
+    public void onTabSelected(Tab selectedtab, FragmentTransaction arg1) {
+        tabsviewPager.setCurrentItem(selectedtab.getPosition());
+    }
+
+    @Override
+    public void onTabUnselected(Tab selectedtab, FragmentTransaction arg1) {
+        tabsviewPager.setCurrentItem(selectedtab.getPosition());
+    }
+
+    @Override
+    public void onTabReselected(Tab tab, FragmentTransaction arg1) {
+
+    }
 }

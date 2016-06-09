@@ -8,4 +8,7 @@
     <string name="e_mail_address">E-mail Address</string>
     <string name="e_mail">E-mail</string>
     <string name="Password">Password</string>
+    <string name="degree_prompt">degree</string>
+    <string name="year_prompt">Year</string>
+    <string name="search_hint">Enter Degree Plan</string>
 </resources>
