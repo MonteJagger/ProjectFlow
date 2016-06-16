@@ -5,54 +5,63 @@
     android:weightSum="1"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="109dp"
-        android:id="@+id/Layout">
-
-        <LinearLayout android:id="@+id/leftLayout"
-            android:layout_width="wrap_content" android:orientation="vertical"
-            android:layout_height="wrap_content" android:paddingBottom="50dp">
-
-            <SearchView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/search"
-                android:queryHint="Enter Degree Plan" />
-
-            <ListView android:layout_width="fill_parent" android:id="@+id/listView"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="7dp" />
-
-        </LinearLayout>
-
-        <LinearLayout android:id="@+id/rightLayout"
-            android:layout_width="match_parent" android:orientation="vertical"
-            android:layout_height="wrap_content" android:paddingTop="25dp">
-
-        </LinearLayout>
-    </LinearLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
 
-        <AutoCompleteTextView
+        android:id="@+id/browseDegreeLayout">
+
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/searchView2"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="13dp"
+            android:background="@drawable/wht_bk_border"
+            android:layout_marginTop="13dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <AutoCompleteTextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/autoComplete"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:focusable="true"
+                    android:popupBackground="#eae8e8"
+                    android:textColor="@color/colorText"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:hint="@string/enter_degree_plan"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Degree"
+            android:id="@+id/textView"
+            android:background="@drawable/app_back"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:focusable="true"
-            android:popupBackground="#767676"
-            android:textColor="@color/colorText" />
+            android:layout_marginLeft="40dp" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/browseYearLayout"
+        android:layout_marginTop="10dp">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -100,18 +109,33 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Year"
             android:id="@+id/textView3"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/tableLayout"
-            android:layout_alignStart="@+id/tableLayout"
-            android:layout_marginLeft="20dp"
             android:background="@drawable/app_back"
             android:paddingRight="5dp"
-            android:paddingLeft="5dp" />
+            android:paddingLeft="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="40dp" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="379dp"
-        android:layout_height="72dp">
+        android:layout_width="match_parent"
+        android:layout_height="212dp">
+
+        <ExpandableListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/expandableListView"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp">
 
         <Button
             android:layout_width="wrap_content"
@@ -123,8 +147,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginRight="50dp"
-            android:layout_marginEnd="50dp" />
+            android:layout_marginRight="15dp" />
 
     </RelativeLayout>
 

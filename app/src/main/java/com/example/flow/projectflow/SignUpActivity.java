@@ -133,8 +133,7 @@ public class SignUpActivity extends AppCompatActivity {
                     data = "?email=" + URLEncoder.encode(emailAddress, "UTF-8");
                     data += "&password=" + URLEncoder.encode(password, "UTF-8");
 
-                    link = "http://flow.site88.net/php.php"+ data;
-                    //link = "http://testandroid.netai.net/signup.php" + data;
+                    link = "http://flowbyvoyu.com/login.php"+ data;
                     URL url = new URL(link);
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
 

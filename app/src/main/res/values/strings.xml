@@ -11,4 +11,5 @@
     <string name="degree_prompt">degree</string>
     <string name="year_prompt">Year</string>
     <string name="search_hint">Enter Degree Plan</string>
+    <string name="enter_degree_plan">Enter Degree Plan</string>
 </resources>

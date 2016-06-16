@@ -5,7 +5,7 @@ package com.example.flow.projectflow;
  */
 public class Config {
     //URL to our login.php file
-    public static final String LOGIN_URL = "http://flow.site88.net/login.php";
+    public static final String LOGIN_URL = "http://flowbyvoyu.com/login2.php";
 
     //Keys for email and password as defined in our $_POST['key'] in login.php
     public static final String KEY_EMAIL = "email";

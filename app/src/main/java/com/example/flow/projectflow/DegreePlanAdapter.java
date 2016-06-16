@@ -11,6 +11,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.CursorAdapter;
 import android.widget.Toast;
 
 public class DegreePlanAdapter {
@@ -29,7 +30,7 @@ public class DegreePlanAdapter {
     private static final String DATABASE_NAME = "DegreePlanData";
     private static final String FTS_VIRTUAL_TABLE = "DegreePlans";
     private static final int DATABASE_VERSION = 1;
-    private Activity mActivity;
+
     //Create a FTS3 Virtual Table for fast searches
     private static final String DATABASE_CREATE =
             "CREATE VIRTUAL TABLE " + FTS_VIRTUAL_TABLE + " USING fts3(" +
@@ -82,7 +83,6 @@ public class DegreePlanAdapter {
         }
     }
 
-
     public long createDegree(String department, String year, String major) {
 
         ContentValues initialValues = new ContentValues();
@@ -92,21 +92,35 @@ public class DegreePlanAdapter {
         initialValues.put(KEY_YEAR, year);
         initialValues.put(KEY_MAJOR, major);
         initialValues.put(KEY_SEARCH, searchValue);
-        //Toast.makeText(ApplicationContextProvider.getContext(), "Inserted", Toast.LENGTH_SHORT).show();
         return mDb.insert(FTS_VIRTUAL_TABLE, null, initialValues);
     }
 
 public Cursor searchDegree(String inputText) throws SQLException {
     Log.w(TAG, inputText);
     Cursor mCursor = mDb.query(true, FTS_VIRTUAL_TABLE, new String[] {KEY_ROWID,KEY_DEPARTMENT,
-                    KEY_YEAR, KEY_MAJOR}, KEY_SEARCH + " like '%" + inputText + "%'", null,
-            null, null, null, null);
+                    KEY_YEAR, KEY_MAJOR}, KEY_SEARCH + " like '%" + inputText + "%' " , null,
+            KEY_MAJOR, null, KEY_MAJOR,null);
     if (mCursor != null) {
         mCursor.moveToFirst();
     }
     return mCursor;
-
 }
+
+    public Cursor searchYear(String inputMajor) throws SQLException {
+        Log.w(TAG, inputMajor);
+        String query = "SELECT docid as _id," +
+                KEY_YEAR  +
+                " from " + FTS_VIRTUAL_TABLE +
+                " where " +  KEY_MAJOR + " MATCH '" + inputMajor + "';";
+        Log.w(TAG, query);
+        Cursor mCursor = mDb.rawQuery(query,null);
+
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
 
     public boolean deleteDegree() {
 
